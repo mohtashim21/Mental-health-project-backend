@@ -15,7 +15,7 @@ server.use(cors());
 mongoose.connect(mongodbUri);
 
 server.get("/", (req, res) => {
-  res.send("Home route");
+  res.send("Home route test");
 });
 
 // contactus form route
