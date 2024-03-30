@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -5,14 +6,13 @@ const ContactUsmodel = require("./model/contactForm");
 const FeedbackModel = require("./model/feedbackForm");
 
 const server = express();
-const port = 8080;
+const port = process.env.PORT || 8080;
+const mongodbUri = process.env.MONGODB_URI;
 
 server.use(express.json());
 server.use(cors());
 
-mongoose.connect(
-  "mongodb+srv://mohteshim3276:3HlpK4Qhx6XL0LQ4@cluster0.gxhs0ta.mongodb.net/maindb"
-);
+mongoose.connect(mongodbUri);
 
 server.get("/", (req, res) => {
   res.send("Home route");
