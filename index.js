@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const ContactUsmodel = require("./model/contactForm");
+const Appointmentmodel = require("./model/appointment");
 const FeedbackModel = require("./model/feedbackForm");
 
 const server = express();
@@ -18,12 +18,12 @@ server.get("/", (req, res) => {
 });
 
 // contactus form route
-server.post("/contactus", async (req, res) => {
+server.post("/appointment", async (req, res) => {
   try {
     const { name, mobileNo, email, date, time } = req.body;
     console.log(name, mobileNo, email, date, time);
 
-    const contactdata = await ContactUsmodel.create({
+    const appointmentdata = await Appointmentmodel.create({
       name,
       mobileNo,
       email,
@@ -31,7 +31,7 @@ server.post("/contactus", async (req, res) => {
       time,
     });
 
-    res.status(201).json(contactdata);
+    res.status(201).json(appointmentdata);
   } catch (err) {
     console.error(err);
     res.status(500).json("Internal server Error");

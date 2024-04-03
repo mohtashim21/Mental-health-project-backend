@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const contactUsSchema = new mongoose.Schema({
+const appointmentSchema = new mongoose.Schema({
   name: {
     type: String,
   },
@@ -9,7 +9,6 @@ const contactUsSchema = new mongoose.Schema({
   },
   email: {
     type: String,
-    unique: true,
   },
   date: {
     type: String,
@@ -19,5 +18,5 @@ const contactUsSchema = new mongoose.Schema({
   },
 });
 
-const ContactUsmodel = mongoose.model("contactus", contactUsSchema);
-module.exports = ContactUsmodel;
+const Appointmentmodel = mongoose.model("contactus", appointmentSchema);
+module.exports = Appointmentmodel;
