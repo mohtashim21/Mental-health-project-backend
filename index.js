@@ -41,12 +41,12 @@ server.post("/appointment", async (req, res) => {
 // feedback form route
 server.post("/feedback", async (req, res) => {
   try {
-    const { name, comments, rating, therapyNames } = req.body;
-    console.log(name, comments, rating, therapyNames);
+    const { name, suggetions, rating, therapyNames } = req.body;
+    console.log(name, suggetions, rating, therapyNames);
 
     const feedbackData = await FeedbackModel.create({
       name,
-      comments,
+      suggetions,
       rating,
       therapyNames,
     });

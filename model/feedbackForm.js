@@ -9,7 +9,7 @@ const feedbackSchema = new mongoose.Schema({
       type: String,
     },
   ],
-  comments: {
+  suggetions: {
     type: String,
   },
   rating: {
