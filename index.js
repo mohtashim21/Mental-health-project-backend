@@ -21,8 +21,6 @@ server.get("/", (req, res) => {
 server.post("/appointment", async (req, res) => {
   try {
     const { name, mobileNo, email, date, time } = req.body;
-    console.log(name, mobileNo, email, date, time);
-
     const appointmentdata = await Appointmentmodel.create({
       name,
       mobileNo,
@@ -33,7 +31,6 @@ server.post("/appointment", async (req, res) => {
 
     res.status(201).json(appointmentdata);
   } catch (err) {
-    console.error(err);
     res.status(500).json("Internal server Error");
   }
 });
@@ -42,8 +39,6 @@ server.post("/appointment", async (req, res) => {
 server.post("/feedback", async (req, res) => {
   try {
     const { name, suggetions, rating, therapyNames } = req.body;
-    console.log(name, suggetions, rating, therapyNames);
-
     const feedbackData = await FeedbackModel.create({
       name,
       suggetions,
@@ -53,7 +48,6 @@ server.post("/feedback", async (req, res) => {
 
     res.status(201).json(feedbackData);
   } catch (err) {
-    console.error(err);
     res.status(500).json("Internal server Error");
   }
 });
