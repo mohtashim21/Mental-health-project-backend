@@ -20,13 +20,12 @@ server.get("/", (req, res) => {
 // contactus form route
 server.post("/appointment", async (req, res) => {
   try {
-    const { name, mobileNo, email, date, time } = req.body;
+    const { name, mobileNo, email, date } = req.body;
     const appointmentdata = await Appointmentmodel.create({
       name,
       mobileNo,
       email,
       date,
-      time,
     });
 
     res.status(201).json(appointmentdata);
